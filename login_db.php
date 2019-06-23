@@ -65,7 +65,7 @@ elseif($objResultcheck > 0)
   }
   elseif($objResult["Userlevel"]=="M")
   {
-    Header("Location: index.php");
+    Header("Location: index1.php");
 
 
   }

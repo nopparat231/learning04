@@ -1,78 +1,106 @@
 
-<?php include 'conn.php'; ?>
-
-<?php 
-
-
-$query_choice = "SELECT * FROM choice WHERE choice_status <> 1 ORDER BY choice_id";
-$choice = mysqli_query($con,$query_choice) or die(mysqli_error());
-$row_choice = mysqli_fetch_assoc($choice);
-$totalRows_choice = mysqli_num_rows($choice);
-
-$query_testing = "SELECT * FROM testing ";
-$testing = mysqli_query($con,$query_testing) or die(mysqli_error());
-$row_testing = mysqli_fetch_assoc($testing);
-$totalRows_testing = mysqli_num_rows($testing);
-
-
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    //session has not started
+  session_start();
+}
 ?>
 
+<!DOCTYPE html>
+<html>
 
-        <h1 class="mb-3 text-center">สื่อการเรียนรู้</h1>
-        <hr>
-        <ul class="list-group list-group-flush text-center">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-          <?php if ($totalRows_choice > 0) {?>
-            <?php do { ?>
+  <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
 
-              <?php 
-              $c =  $row_choice['choice_id']; 
-              $user_id = $_SESSION['UserID'];
-              $sql3="SELECT * From user_learning WHERE user_id = $user_id AND choice_id = $c";
-              $db_query3=mysqli_query($con,$sql3) or die(mysqli_error());
-              $result3=mysqli_fetch_array($db_query3);
-              $totalRows_query3 = mysqli_num_rows($db_query3);
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 
-              ?>
-             
+  <title>สื่อแอนิเมชั่น</title>
+  <link rel="shortcut icon" href="./img/5.png" />
 
-              <?php if ($totalRows_query3 > 0){ ?>
+  <style type="text/css">
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+    
+  </style>
+</head>
 
-                <?php if ($result3['user_learning_af'] == 'ยังไม่ทำ'){ ?>
-                 <li class="list-group">
-                  <h3>
+<body>
 
-                    <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
-                  </h3>
-                </li>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" >
+       <?php include 'navbar.php'; ?>
+       <?php include 'navbar1.php'; ?>
+     </div>
+   </div>
+ </div>
 
-              <?php }else{ ?>
-                <li class="list-group">
-                  <h3>
-                    
-                    <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
-                  </h3>
-                </li>
+ <div class="py-2">
+  <div class="container">
+    <div class="row">
 
-              <?php  } ?>
+      <?php include 'menu.php'; ?>
+      <?php include 'model.php'; ?>
+
+      <?php
+      $regis = isset($_GET['register']);
+      $learning = isset($_GET['learning']);
+
+      if ($regis <> ''): ?>
+       <div class="col-md-9 bg-light">
+        <?php include 'register.php'; ?>
+      </div>
+      <?php elseif ($learning <> ''): ?>
+        <div class="col-md-9 bg-light">
+          <?php include 'index2.php'; ?>
+        </div>
+        <?php else: ?>
+
+          <div class="col-md-9 bg-light">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/qllEXQACumc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <br>
+            <font color="red">
+              <h4 class="">คำแนะนำ </h4>
+              <h5>
+                <ol class="">
+                  <li>ระบบมีมาตราการเพื่อป้องกันข้อมูลส่วนบุคคล ขอให้ท่านได้ศึกษาและปฏิบัติตามขั้นตอนตามลำดับ</li>
+                  <li>ท่านต้องลงทะเบียนและใช้รหัสผ่านในการเข้าสู่ระบบ</li>
+                  <li>ควรเป็นผู้ทำรายการทุกขั้นตอนด้วยตัวเองและรักษารหัสผ่านเป็นความลับเพื่อป้องกันการแอบอ้างการเข้าสู่ระบบ</li>
+                  <li>ผู้ที่ยังไม่สมัครเป็นสมาชิกให้กดปุ่ม สมัครสมาชิก สำหรับผู้ที่สมัครเป็นสมาชิกให้กดปุ่ม เข้าสู่ระบบ เพื่อทำการ Login เข้าสู่ระบบ</li>
+
+                </ol>
+              </h5>
+            </font>
+          </div>
+
+        <?php endif ?>
+
+      </div>
+    </div>
+  </div>
+  <?php
+  if ($learning <> ''): ?>
+    <style>
+      .footer {
+       position: fixed;
+       bottom: 0;
+       width: 100%;
+       color: white;
+       text-align: center;
+     }
+   </style>
 
 
-            <?php }else{?>
+ <?php endif ?>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <?php include 'footer.php'; ?>
 
-             <li class="list-group">
-              <h3>
-                
-                <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b> <font size="3">ยังไม่ทำแบบทดสอบ</font></b>
-              </h3>
-            </li>
-          <?php } ?>
+</body>
 
-          <hr>
-
-        <?php } while ($row_choice = mysqli_fetch_assoc($choice)); ?>
-
-      <?php }
-      mysqli_free_result($choice);
-      ?>
-
-    </ul>
+</html>
