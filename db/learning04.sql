@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2019 at 05:17 PM
+-- Generation Time: Jun 23, 2019 at 04:37 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -124,8 +124,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `Username`, `Password`, `Firstname`, `Lastname`, `email`, `phone`, `Userlevel`, `user_date`, `session_id`, `Status`) VALUES
+(48, 'user', 'Aa123456', 'User', 'User', 'User@gmail.com', '8888888888', 'M', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
 (44, 'admin', 'Aa123456', 'GGMM', 'GGMM', 'admin@gmail.com', '8888888888', 'A', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
-(47, 'user', 'Aa123456', 'User', 'User', 'User@gmail.com', '8888888888', 'M', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y');
+(47, 'user', 'Aa1234561', 'User1', 'User', 'User@gmail.com', '8888888888', 'M', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,8 @@ CREATE TABLE `user_learning` (
 --
 
 INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`, `user_learning_time_bf`, `user_learning_time_af`, `user_learning_status`) VALUES
-(71, 1, 47, 6, '6', '6 วินาที', '3 วินาที', 0);
+(72, 1, 44, 7, '13', '20 วินาที', '17 วินาที', 0),
+(73, 1, 47, 7, '6', '22 วินาที', '23 วินาที', 0);
 
 --
 -- Indexes for dumped tables
@@ -199,13 +201,13 @@ ALTER TABLE `testing`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `user_learning`
 --
 ALTER TABLE `user_learning`
-  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
