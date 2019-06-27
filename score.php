@@ -6,8 +6,7 @@
 <?php 
 
 include 'header.php';
-include 'conn.php'; ?>
-<?php 
+include 'conn.php'; 
 
 $user_id = $_GET['user_id'];
 
@@ -57,9 +56,9 @@ $totalRows_learning = mysqli_num_rows($learning);
                     <th scope="col">นามสกุล</th>
                     <th scope="col">บทเรียน</th>
                     <th scope="col">คะแนนก่อนเรียน</th>
-                    <th scope="col">เวลาก่อนเรียน</th>
+                   <!--  <th scope="col">เวลาก่อนเรียน</th> -->
                     <th scope="col">คะแนนหลังเรียน</th>
-                    <th scope="col">เวลาหลังเรียน</th>
+                   <!--  <th scope="col">เวลาหลังเรียน</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -75,9 +74,9 @@ $totalRows_learning = mysqli_num_rows($learning);
                       <td><?php echo $row_learning['Lastname']; ?></td>
                       <td><?php echo $row_learning['choice_name']; ?></td>
                       <td><?php echo $row_learning['user_learning_bf']; ?></td>
-                      <td><?php echo $row_learning['user_learning_time_bf']; ?></td>
+                    <!--   <td><?php //echo $row_learning['user_learning_time_bf']; ?></td> -->
                       <td><?php echo $row_learning['user_learning_af']; ?></td>
-                      <td><?php echo $row_learning['user_learning_time_af']; ?></td>
+                     <!--  <td><?php //echo $row_learning['user_learning_time_af']; ?></td> -->
                     </tr>
 
                     <?php 

@@ -2,13 +2,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
-</head>
-<?php 
+<?php include 'header.php'; 
 include('conn.php'); 
 $user_id = $_GET['user_id'];
 
@@ -17,8 +11,7 @@ $result = mysqli_query($con,$check) or die(mysqli_error());
 $num = mysqli_fetch_assoc($result);
 
 ?>
-<body>
- <?php include 'navbar.php'; ?>
+
  <div class="container">
   <div class="row">
     <?php include 'menu.php'; ?>
@@ -67,7 +60,7 @@ $num = mysqli_fetch_assoc($result);
                               <div class="col-md-12 text-center">
                                 <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
 
-                                <a class="btn btn-danger text-light mx-1" href="index.php?learning">ยกเลิก</a>
+                                <a class="btn btn-danger text-light mx-1" href="index1.php">ยกเลิก</a>
                               </div>
                             </div>
                           </div>
@@ -92,8 +85,7 @@ $num = mysqli_fetch_assoc($result);
          }
        </style>
        <?php include 'footer.php'; ?>
-     </body>
-
+  
      </html>
 
      <script type="text/javascript">

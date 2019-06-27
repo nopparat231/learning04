@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbar6"> 
     <a class="navbar-brand text-primary d-none d-md-block" href="#">
      
-      <b> DIGITAL MARKETING COMMUNICATION</b>
+      <img src="./img/img237.jpg" alt="" width="10%"> <b>  DIGITAL MARKETING COMMUNICATION</b>
     </a>
     <ul class="navbar-nav mx-auto"></ul>
  

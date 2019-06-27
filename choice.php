@@ -2,22 +2,15 @@
 <?php session_start();?>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
-
   <style>
     /* The container */
-    .container {
+    .containerr {
       display: block;
       position: relative;
       padding-left: 35px;
       margin-bottom: 12px;
       cursor: pointer;
-      font-size: 15px;
+      font-size: 20px;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -25,7 +18,7 @@
     }
 
     /* Hide the browser's default radio button */
-    .container input {
+    .containerr input {
       position: absolute;
       opacity: 0;
       cursor: pointer;
@@ -43,13 +36,13 @@
     }
 
     /* On mouse-over, add a grey background color */
-    .container:hover input ~ .checkmark {
+    .containerr:hover input ~ .checkmark {
       background-color: #ccc;
     }
 
     /* When the radio button is checked, add a blue background */
-    .container input:checked ~ .checkmark {
-      background-color: #52E678;
+    .containerr input:checked ~ .checkmark {
+      background-color: #FE7452;
     }
 
     /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -60,12 +53,12 @@
     }
 
     /* Show the indicator (dot/circle) when checked */
-    .container input:checked ~ .checkmark:after {
+    .containerr input:checked ~ .checkmark:after {
       display: block;
     }
 
     /* Style the indicator (dot/circle) */
-    .container .checkmark:after {
+    .containerr .checkmark:after {
       top: 9px;
       left: 9px;
       width: 8px;
@@ -74,9 +67,6 @@
       background: white;
     }
   </style>
-
-
-</head>
 
 <?php include 'conn.php'; ?>
 <?php 
@@ -94,32 +84,12 @@ $resultN=mysqli_fetch_array($db_queryN);
 
 
 ?>
+<?php include 'header.php'; ?>
 
 <body onload="window.setTimeout(&#39;getSecs()&#39;,1)">
-  <?php include 'navbar.php'; ?>
 
-  <?php 
 
-  if (isset($_REQUEST['aff']) && !isset($_REQUEST['af'])) { ?>
-    <div style="position: fixed; width: 400px;">
-      <form>
-        &nbsp;&nbsp;จับเวลาทำแบบทดสอบ : <input size="5" name="timespent" id="time_value" style="border: none;border-bottom: 2px solid red;" />
-        <input type="hidden" name="aff" id="ck" value="aff">
 
-      </form>    
-
-    </div>
-  <?php } 
-  if (isset($_REQUEST['bff'])) { ?>
-    <div style="position: fixed; width: 400px;">
-      <form>
-        &nbsp;&nbsp;จับเวลาทำแบบทดสอบ : <input size="5" name="timespent" id="time_value" style="border: none;border-bottom: 2px solid red;" />
-        <input type="hidden" name="aff" id="ck" value="bff">
-
-      </form>    
-
-    </div>
-  <?php } ?>
   <div class="container">
 
     <div class="py-2">
@@ -174,22 +144,22 @@ $resultN=mysqli_fetch_array($db_queryN);
 
                 <ol>
 
-                  <label class="container"><h5><?php echo $result["c1"];?>
+                  <label class="containerr"><h5><?php echo $result["c1"];?>
                   <input type="radio" name="c<?php echo $i;?>" value="1" required>
                   <span class="checkmark"></span></h5>
                 </label>
 
-                <label class="container"><h5><?php echo $result["c2"];?>
+                <label class="containerr"><h5><?php echo $result["c2"];?>
                 <input type="radio" name="c<?php echo $i;?>" value="2">
                 <span class="checkmark"></span></h5>
               </label>
 
-              <label class="container"><h5><?php echo $result["c3"];?>
+              <label class="containerr"><h5><?php echo $result["c3"];?>
               <input type="radio" name="c<?php echo $i;?>" value="3">
               <span class="checkmark"></span></h5>
 
             </label>
-            <label class="container"><h5><?php echo $result["c4"];?>
+            <label class="containerr"><h5><?php echo $result["c4"];?>
             <input type="radio" name="c<?php echo $i;?>" value="4">
             <span class="checkmark"></span></h5>
           </label>
@@ -227,7 +197,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         <?php if (isset($_REQUEST['af'])) { ?>
          <a href="score.php?user_id=<?php echo $user_id ?>" class="btn btn-secondary" type="button" >ดูคะแนนรวม</a>
        <?php }else{ ?>
-         <button class="btn btn-secondary" id="btn1" >ส่งคำตอบ</button>
+         <button class="btn btn-xs btn-danger buttonn" id="btn1" >ส่งคำตอบ</button>
 
        <?php   } ?>
 
