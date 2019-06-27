@@ -10,7 +10,7 @@ $num = mysqli_fetch_assoc($result);
 ?>
 <body>
 
-  <div class="col-md-9 bg-light">
+  <div class="col-md-9">
    <div class="py-2">
     <div class="container">
       <div class="row">

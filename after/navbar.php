@@ -1,6 +1,6 @@
 
  <?php// include 'checkLogin.php'; ?>
- <nav class="navbar navbar-expand-md bg-light navbar-light">
+ <nav class="navbar navbar-expand-md navbar-light">
   <div class="container"> 
     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">
       <span class="navbar-toggler-icon"></span>

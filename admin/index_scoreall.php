@@ -8,7 +8,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 
 
 ?>
-<div class="col-md-9 bg-light">
+<div class="col-md-9">
  <div class="py-2">
   <div class="container">
     <div class="row">

@@ -18,7 +18,7 @@ $totalRows_model = mysqli_num_rows($model);
 <?php if (isset($_REQUEST['sco']) <> ''): ?>
 
 
-  <div class="col-md-9 bg-light">
+  <div class="col-md-9">
    <div class="py-2">
     <div class="container">
       <div class="row">
@@ -128,7 +128,7 @@ $totalRows_model = mysqli_num_rows($model);
 
 <?php else: ?>
 
-  <div class="col-md-9 bg-light">
+  <div class="col-md-9">
    <div class="py-2">
     <div class="container">
       <div class="row">

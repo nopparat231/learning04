@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbar6"> 
-    <a class="navbar-brand text-primary d-none d-md-block" href="index.php">
+    <a class="navbar-brand text-primary d-none d-md-block" href="#">
      
       <b> DIGITAL MARKETING COMMUNICATION</b>
     </a>
@@ -15,20 +15,14 @@
             <?php if (isset($_SESSION["Userlevel"]) == "M") { 
 
               echo "<b class='fa text-primary nav-link' >".$_SESSION["User"]."</b>";
-            }else{ ?>
-
-
-
-            <?php    }
-
-            ?>
+            }else{ }?>
 
           </li>
           <li class="nav-item">  
             <?php
 
             if (isset($_SESSION["Userlevel"]) == "M") {
-              echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>";
+              //echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>";
 
             }else{?>
 

@@ -11,7 +11,7 @@ $totalRows_user = mysqli_num_rows($user);
 
 ?>
 
-<div class="col-md-9 bg-light">
+<div class="col-md-9">
 	<div class="py-2">
 		<div class="container">
 			<div class="row">
