@@ -17,6 +17,7 @@ $totalRows_user = mysqli_num_rows($user);
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="text-center" >จัดการผู้ใช้</h1>
+					<hr>
 				</div>
 			</div>
 		</div>
@@ -27,9 +28,7 @@ $totalRows_user = mysqli_num_rows($user);
 			<div class="row">
 				<div class="col-md-12">
 					<div class="table-responsive text-center">
-						<br>
-
-
+					
 						<table class="display" id="example">
 							<?php if ($totalRows_user > 0) {?>
 
@@ -64,11 +63,11 @@ $totalRows_user = mysqli_num_rows($user);
 												<?php 
 
 												if ($row_user['Userlevel'] == 'A' ){
-													echo "Admin";
+													echo "ผู้ดูแลระบบ";
 												}elseif ($row_user['Userlevel'] == 'M') {
-													echo "User";
+													echo "ผู้ใช้งาน";
 												}elseif ($row_user['Userlevel'] == 'E') {
-													echo "Expired";
+													echo "<font color='red' >หมดอายุ</font>";
 												}
 
 												?>
@@ -77,16 +76,16 @@ $totalRows_user = mysqli_num_rows($user);
 
 
 											<td>
-												<a href="index.php?eu&user_id=<?php echo $row_user['ID'];?>" class="btn btn-outline-warning my-2 my-sm-0" ><i class="fa fa-pencil text-muted fa-mg"></i></a>
+												<a href="index.php?eu&user_id=<?php echo $row_user['ID'];?>" class="btn btn-outline-warning my-2 my-sm-0" ><i class="fas fa-user-edit"></i></a>
 											</td>
 
 											<?php if ($row_user['Userlevel'] <> 'E' ): ?>
 												<td>
-													<a href="del_user.php?User_id=<?php echo $row_user['ID'];?>&Userlevel=E" class="btn btn-outline-danger my-2 my-sm-0" onClick="return confirm('ยืนยันการยกเลิกผู้ใช้');">ยกเลิก</a>
+													<a href="del_user.php?User_id=<?php echo $row_user['ID'];?>&Userlevel=E" class="btn btn-outline-danger my-2 my-sm-0" onClick="return confirm('ยืนยันการยกเลิกผู้ใช้');"><i class="fas fa-ban"></i></a>
 												</td>
 												<?php else: ?>
 													<td>
-														<a href="del_user.php?User_id=<?php echo $row_user['ID'];?>&Userlevel=M" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานผู้ใช้');">ใช้งาน</a>
+														<a href="del_user.php?User_id=<?php echo $row_user['ID'];?>&Userlevel=M" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานผู้ใช้');"><i class="fas fa-redo-alt"></i></a>
 													</td>
 												<?php endif ?>
 

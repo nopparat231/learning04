@@ -20,7 +20,7 @@ $num = mysqli_fetch_assoc($result);
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center"><b>แก้ไขข้อมูล</b></h1>
+            <h1 class="text-center"><b>เปลี่ยนรหัสผ่าน</b></h1>
             <hr>
           </div>
         </div>
@@ -40,12 +40,12 @@ $num = mysqli_fetch_assoc($result);
                 </div>
                 <div class="form-group row"> 
                   <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
-                  <div class="col-10">
+                  <div class="col-5">
                     <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" value="<?php echo($num['Password'])?>"> </div>
                   </div>
                   <div class="form-group row">
                    <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
-                   <div class="col-10">
+                   <div class="col-5">
                     <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน"  title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป" minlength="8" maxlength="25" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="<?php echo($num['Password'])?>">
                     <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
                   </div>

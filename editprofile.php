@@ -47,24 +47,24 @@
                     </div>
 
                     <div class="form-group row"><label class="col-2">ชื่อ</label>
-                      <div class="col-10">
+                      <div class="col-5">
                         <div class="input-group">
                           <input type="text" name="Firstname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ"  value="<?php echo($num['Firstname'])?>" onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
                         </div>
                       </div>
                       <div class="form-group row"><label class="col-2">นามสกุล</label>
-                        <div class="col-10">
+                        <div class="col-5">
                           <div class="input-group">
                             <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" value="<?php echo($num['Lastname'])?>"  onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
                           </div>
                         </div>
                         <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">อีเมล์</label>
-                          <div class="col-10">
+                          <div class="col-5">
                             <input type="email" name="email" class="form-control" id="inputmailh" required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์"  value="<?php echo($num['email'])?>"> </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-2">เบอร์โทร<br></label>
-                            <div class="col-10">
+                            <div class="col-5">
                               <div class="input-group">
                                 <input name="phone" class="form-control" id="input-num" required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" value="<?php echo($num['phone'])?>" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                 type="tel"
