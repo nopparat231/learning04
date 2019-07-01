@@ -100,10 +100,13 @@ $resultN=mysqli_fetch_array($db_queryN);
 
               <?php if (isset($_REQUEST['bff'])){ ?>
                 แบบทดสอบก่อนเรียน <?php echo $resultN['choice_name']; ?>
+                <hr>
               <?php }elseif(isset($_REQUEST['aff'])){ ?>
                 แบบทดสอบหลังเรียน <?php echo $resultN['choice_name']; ?>
+                <hr>
               <?php }elseif (isset($_REQUEST['af'])) { ?>
                 เฉลยแบบทดสอบ <?php echo $resultN['choice_name']; ?>
+                <hr>
               <?php } ?>
             </b></h1>
           </div>
@@ -145,7 +148,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="containerr"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" required>
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required checked>
                   <span class="checkmark"></span></h5>
                 </label>
 

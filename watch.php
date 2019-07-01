@@ -1,12 +1,6 @@
 <?php session_start();?>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
-</head>
 
 <?php include 'conn.php'; ?>
 <?php 
@@ -20,10 +14,8 @@ $totalRows_watch = mysqli_num_rows($watch);
 ?>
 
 
+<?php include 'header.php'; ?>
 
-
-<body>
-  <?php include 'navbar.php'; ?>
   <div class="py-2">
     <div class="container">
       <div class="row">
