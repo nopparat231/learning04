@@ -90,7 +90,7 @@ $totalRows_model = mysqli_num_rows($model);
                     </td>
                     <?php else: ?>
                       <td> 
-                        <a href="del_choice.php?choice_id=<?php echo $row_model['choice_id'];?>&st=0" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานหมวดหมู่');"><i class="fa fa fa-repeat text-muted fa-mg"></i></a>
+                        <a href="del_choice.php?choice_id=<?php echo $row_model['choice_id'];?>&st=0" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานหมวดหมู่');"><i class="fas fa-times-circle"></i></i></a>
                       </td>
                     <?php endif ?>
 

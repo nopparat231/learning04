@@ -1,11 +1,9 @@
-<?php include '../conn.php'; ?>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+
 
 <?php 
 
 if (isset($_GET['id'])) {
+//include '../conn.php';
 
   $id = $_GET['id'];
   $choice_id = $_GET['choice_id'];
@@ -20,17 +18,31 @@ if (isset($_GET['id'])) {
   $row_cc = mysqli_fetch_assoc($cc);
   $totalRows_cc = mysqli_num_rows($cc);
 
-}
-?>
 
-<?php include 'navbar.php'; ?>
+  ?>
+  <script type="text/javascript">
+
+    //onload show modal script ชุดนี้โหลดมาตรงๆ ไม่มีหน่วงเวลานะ
+    $(document).ready(function(){
+      $("#edcModal").modal('show');
+    });
+    
+
+  </script>
+
+
+<?php } ?>
+
 <body>
+  <div class="modal fade" style="" id="edcModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">แก้ไขหมวดหมู่</h5>
+          <button type="button" class="close" data-dismiss="modal"> <span>×</span> </button>
+        </div>
+        <div class="modal-body">
 
-  <div class="py-3 text-center">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto p-4 col-lg-7">
-          <h1 class="mb-4">แก้ไขหมวดหมู่</h1>
           <form action="edit_choice_sub_db.php" method="post">
 
             <div class="form-group row"> 
@@ -68,49 +80,53 @@ if (isset($_GET['id'])) {
           </div>
 
           <div class="form-group row"> 
-           <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 1</label>
+            <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 1)</label>
+            <div class="col-10">
+              <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 1" name="c1" value="<?php echo $row_editc['c1'] ?>">
+            </div>
+          </div>
+
+          <div class="form-group row"> 
+           <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 2)</label>
            <div class="col-10">
-            <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 1" name="c1" value="<?php echo $row_editc['c1'] ?>">
+            <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 2" name="c2" value="<?php echo $row_editc['c2'] ?>">
           </div>
         </div>
 
         <div class="form-group row"> 
-         <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 2</label>
+         <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 3)</label>
          <div class="col-10">
-          <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 2" name="c2" value="<?php echo $row_editc['c2'] ?>">
+          <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 3" name="c3" value="<?php echo $row_editc['c3'] ?>">
         </div>
       </div>
 
       <div class="form-group row"> 
-       <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 3</label>
+       <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 4)</label>
        <div class="col-10">
-        <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 3" name="c3" value="<?php echo $row_editc['c3'] ?>">
+        <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 4" name="c4" value="<?php echo $row_editc['c4'] ?>">
       </div>
     </div>
 
     <div class="form-group row"> 
-     <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 4</label>
+     <label for="inputmailh" class="col-2 col-form-label">คำตอบ</label>
      <div class="col-10">
-      <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 4" name="c4" value="<?php echo $row_editc['c4'] ?>">
+      <input type="number" class="form-control" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="คำตอบเป็นตัวเลข เช่น 1 , 2 , 3 , 4" value="<?php echo $row_editc['answer'] ?>" /> 
     </div>
   </div>
 
-  <div class="form-group row"> 
-   <label for="inputmailh" class="col-2 col-form-label">คำตอบ</label>
-   <div class="col-10">
-    <input type="number" class="form-control" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="คำตอบเป็นตัวเลข เช่น 1 , 2 , 3 , 4" value="<?php echo $row_editc['answer'] ?>" /> 
-  </div>
+
 </div>
 
-<button type="submit" class="btn btn-primary">แก้ไข</button> 
-<a href="index.php?showchoice_s?choice_id=<?php echo $choice_id; ?>" type="submit" class="btn btn-danger" >ยกเลิก</a>
+
+<div class="modal-footer"> 
+  <button type="submit" class="btn btn-outline-success">แก้ไข</button> 
+  <a href="#" class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close" >ยกเลิก</a>
 </form>
 </div>
-</div>
-</div>
-</div>
 
-
+</div>
+</div>
+</div>
 </body>
 
 <div class="py-5">
@@ -122,7 +138,6 @@ if (isset($_GET['id'])) {
     </div>
   </div>
 </div>
-<?php include 'footer_admin.php'; ?>
 
 <script type="text/javascript">
   function num() {
@@ -130,6 +145,3 @@ if (isset($_GET['id'])) {
     element.value = element.value.replace(/[^1-4]+/, '');
   };
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

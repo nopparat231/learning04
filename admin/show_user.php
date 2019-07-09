@@ -85,7 +85,7 @@ $totalRows_user = mysqli_num_rows($user);
 												</td>
 												<?php else: ?>
 													<td>
-														<a href="del_user.php?User_id=<?php echo $row_user['ID'];?>&Userlevel=M" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานผู้ใช้');"><i class="fas fa-redo-alt"></i></a>
+														<a href="del_user.php?User_id=<?php echo $row_user['ID'];?>&Userlevel=M" class="btn btn-outline-secondary my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานผู้ใช้');"><i class="fas fa-redo-alt"></i></a>
 													</td>
 												<?php endif ?>
 
