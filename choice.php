@@ -2,71 +2,71 @@
 <?php session_start();?>
 <html>
 
-  <style>
-    /* The container */
-    .containerr {
-      display: block;
-      position: relative;
-      padding-left: 35px;
-      margin-bottom: 12px;
-      cursor: pointer;
-      font-size: 20px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+<style>
+  /* The container */
+  .containerr {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-    /* Hide the browser's default radio button */
-    .containerr input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-    }
+  /* Hide the browser's default radio button */
+  .containerr input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
 
-    /* Create a custom radio button */
-    .checkmark {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 25px;
-      width: 25px;
-      background-color: #eee;
-      border-radius: 50%;
-    }
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
 
-    /* On mouse-over, add a grey background color */
-    .containerr:hover input ~ .checkmark {
-      background-color: #ccc;
-    }
+  /* On mouse-over, add a grey background color */
+  .containerr:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
 
-    /* When the radio button is checked, add a blue background */
-    .containerr input:checked ~ .checkmark {
-      background-color: #FE7452;
-    }
+  /* When the radio button is checked, add a blue background */
+  .containerr input:checked ~ .checkmark {
+    background-color: #FE7452;
+  }
 
-    /* Create the indicator (the dot/circle - hidden when not checked) */
-    .checkmark:after {
-      content: "";
-      position: absolute;
-      display: none;
-    }
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
 
-    /* Show the indicator (dot/circle) when checked */
-    .containerr input:checked ~ .checkmark:after {
-      display: block;
-    }
+  /* Show the indicator (dot/circle) when checked */
+  .containerr input:checked ~ .checkmark:after {
+    display: block;
+  }
 
-    /* Style the indicator (dot/circle) */
-    .containerr .checkmark:after {
-      top: 9px;
-      left: 9px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: white;
-    }
-  </style>
+  /* Style the indicator (dot/circle) */
+  .containerr .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+</style>
 
 <?php include 'conn.php'; ?>
 <?php 
@@ -113,7 +113,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         </div>
       </div>
     </div>
-    <form name="form1" method="post" action="">
+    <form name="form1" method="get" action="">
       <div class="py-3" style="">
         <div class="container">
           <div class="row">
@@ -123,7 +123,7 @@ $resultN=mysqli_fetch_array($db_queryN);
               <?php 
 
               if (isset($_REQUEST['af'])) {
-                include 'answer.php';
+                include 'answer.php'; //เฉลย
               }else{
 
                ?>
@@ -188,6 +188,7 @@ $resultN=mysqli_fetch_array($db_queryN);
 
 <?php if (isset($_REQUEST['aff'])){ ?>
   <input type="hidden" name="af" value="af" />
+  <input type="hidden" name="cff" value="cff" />
 <?php }elseif(isset($_REQUEST['bff'])){ ?>
  <input type="hidden" name="bf" value="bf" />
 <?php } ?>
@@ -221,8 +222,11 @@ $resultN=mysqli_fetch_array($db_queryN);
 <?php
 
 function bf(){
-
+  include 'conn.php';
   //$user_learning_time_bf = 'ยังไม่ทำ';
+  $aabff = $_REQUEST['bff']; //สถานะ ก่อน หลัง
+  $aabff = 'bff'; //สถานะ ก่อน หลัง
+  
 
   $choice_id = $_REQUEST['choice_id'];
   $user_id = $_REQUEST['user_id'];
@@ -233,16 +237,24 @@ function bf(){
   $line = $_REQUEST['line']+1;
   for ($i=1; $i < $line; $i++) { 
 
+    $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
+     $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
 
-    if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
-    {
+     $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$aabff' )";
+     $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+
+
+     if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
+     {
       $score=$score+1;
     }
   }
-  include 'conn.php';
-  $sql1 = "UPDATE user_learning SET user_learning_bf = '$score' WHERE choice_id = '$choice_id'";
+
+  $user_learning_af = 'ยังไม่ทำ';
+  $sql1 = "INSERT INTO user_learning (choice_id, user_id , user_learning_bf , user_learning_af , user_learning_status) VALUES('$choice_id', '$user_id', '$score','$user_learning_af' , '0')";
 
   $result1 = mysqli_query($con, $sql1) or die ("Error in query: $sql1 " . mysqli_error());
+
 
 //ปิดการเชื่อมต่อ database
   mysqli_close($con);
@@ -280,82 +292,99 @@ function bf(){
   <?php
 
   function af(){
-
+    include 'conn.php';
     //$time = $_REQUEST['timespent'];
 
     $choice_id = $_REQUEST['choice_id'];
     $user_id = $_REQUEST['user_id'];
     $user_learning_af = $_REQUEST['af'];
-    $score =0;
+    //$user_learning_aff = $_REQUEST['aff'];
+    $user_learning_cff = $_REQUEST['cff'];
+    $score = 0;
 
-
+    if ($user_learning_cff == 'cff') {
+      $del = "DELETE FROM user_testing WHERE user_bf = 'af' AND user_id = '$user_id'";
+      $delq = mysqli_query($con, $del) or die ("Error in query: $del " . mysqli_error());
+    }
     $line = $_REQUEST['line']+1;
     for ($i=1; $i < $line; $i++) { 
 
+      $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
+      $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
 
-      if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
-      {
-        $score=$score+1;
-      }
+      if ($user_learning_cff == 'cff') {
+
+        $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$user_learning_af' )";
+        $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+      }else{
+       $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$user_learning_af' )";
+       $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+     }
+     
+
+     if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
+     {
+      $score=$score+1;
     }
-    include 'conn.php';
+  }
 
-    $sql2 = "UPDATE user_learning SET user_learning_af = $score WHERE user_id = $user_id AND choice_id = $choice_id ";
 
-    $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+  $sql2 = "UPDATE user_learning SET user_learning_af = $score WHERE user_id = $user_id AND choice_id = $choice_id ";
+
+  $result2 = mysqli_query($con, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
 
 //ปิดการเชื่อมต่อ database
-    mysqli_close($con);
+  mysqli_close($con);
 //จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
-    ?>
+  ?>
 
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 
-    <script type="text/javascript">
+  <script type="text/javascript">
 
-      var $ws = '#';
+    var $ws = '#';
 
-      setTimeout(function () { 
-        swal({
-          title: "คะแนนหลังเรียน <?php echo $score ?> คะแนน",
+    setTimeout(function () { 
+      swal({
+        title: "คะแนนหลังเรียน <?php echo $score ?> คะแนน",
 
-          type: "success",
+        type: "success",
 
-          confirmButtonText: "ดูเฉลย"
-        },
-        function(isConfirm){
-          if (isConfirm) {
-            window.location.href = $ws;
-          }
-        }); }, 50);
+        confirmButtonText: "ดูเฉลย"
+      },
+      function(isConfirm){
+        if (isConfirm) {
+          window.location.href = $ws;
+        }
+      }); }, 50);
 
-      </script>
-    <?php } ?>
+    </script>
+  <?php } ?>
 
-    <!--  <button class="btn btn-secondary" onclick="submitForms()" >ส่งคำตอบ</button> -->
-  </div>
+  <!--  <button class="btn btn-secondary" onclick="submitForms()" >ส่งคำตอบ</button> -->
+</div>
 
-  <script> 
-    startday = new Date();
-    clockStart = startday.getTime();
-    function initStopwatch() 
-    { 
-     var myTime = new Date(); 
-     var timeNow = myTime.getTime();  
-     var timeDiff = timeNow - clockStart; 
-     this.diffSecs = timeDiff/1000; 
-     return(this.diffSecs); 
-   } 
-   function getSecs() 
-   { 
-    var mySecs = initStopwatch(); 
-    var mySecs1 = ""+mySecs; 
-    mySecs1= mySecs1.substring(0,mySecs1.indexOf(".")) + " วินาที"; 
-    document.forms[0].timespent.value = mySecs1 
-    window.setTimeout('getSecs()',1000); 
-  }
+<script> 
+  startday = new Date();
+  clockStart = startday.getTime();
+  function initStopwatch() 
+  { 
+   var myTime = new Date(); 
+   var timeNow = myTime.getTime();  
+   var timeDiff = timeNow - clockStart; 
+   this.diffSecs = timeDiff/1000; 
+   return(this.diffSecs); 
+ } 
+ function getSecs() 
+ { 
+  var mySecs = initStopwatch(); 
+  var mySecs1 = ""+mySecs; 
+  mySecs1= mySecs1.substring(0,mySecs1.indexOf(".")) + " วินาที"; 
+  document.forms[0].timespent.value = mySecs1 
+  window.setTimeout('getSecs()',1000); 
+}
 
 </script>
 

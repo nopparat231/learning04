@@ -70,7 +70,7 @@ $totalRows_watch = mysqli_num_rows($watch);
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <a class="btn btn-success" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff">ทำแบบทดสอบหลังเรียน</a></div>
+            <a class="btn btn-success" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff=cff">ทำแบบทดสอบหลังเรียน</a></div>
           </div>
         </div>
       </div>

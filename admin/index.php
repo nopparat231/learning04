@@ -31,6 +31,8 @@ if(session_status() == PHP_SESSION_NONE){
         $ep = isset($_REQUEST['ep']);
         $pw = isset($_REQUEST['pw']);
         $su = isset($_REQUEST['su']);
+        $anw = isset($_REQUEST['anw']);
+        $anws = isset($_REQUEST['anws']);
         $eu = isset($_REQUEST['eu']);
         $sc = isset($_REQUEST['sc']);
         $sco = isset($_REQUEST['sco']);
@@ -50,6 +52,10 @@ if(session_status() == PHP_SESSION_NONE){
           include 'edit_password.php';
         }elseif ($su <> '') {
           include 'show_user.php';
+        }elseif ($anw <> '') {
+          include 'show_user_anw.php';
+        }elseif ($anws <> '') {
+          include 'show_user_anwshow.php';
         }elseif ($eu <> '') {
           include 'edit_user.php';
         }elseif ($sc <> '' or $sco <> '') {

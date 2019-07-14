@@ -20,17 +20,18 @@ $num = mysqli_fetch_assoc($result);
   </div>
 </div>
 <div class="py-1">
-  <div class="container w-46">
+  <div class="container ">
     <div class="row">
-      <div class="text-left col-md-12" style="">
-        <form class="" id="c_form-h" action="send_mail_db.php" method="post" >
-          <div class="form-group row">
+
+      <form class="" id="c_form-h" action="send_mail_db.php" method="post" >
+        <div class="form-group row">
+          <div class="col-md-12">
             <label class="col-3">ข้อความแจ้งเตือน</label>
-            <div class="col-9">
+           
 
-        <textarea rows="8" cols="80" required placeholder="กรุณากรอกข้อความ" name="massage"></textarea>
+              <textarea rows="8" cols="80" required placeholder="กรุณากรอกข้อความ" name="massage"></textarea>
 
-            </div>
+           
             <label class="col-3">ส่งถึง</label>
             <div class="col-9">
 
@@ -49,14 +50,14 @@ $num = mysqli_fetch_assoc($result);
             </div>
             
             <label class="col-3"></label>
-     
 
-
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
+
     </div>
   </div>
+</div>
 
 </div>
 

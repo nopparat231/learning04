@@ -9,7 +9,7 @@ for ($i=1; $i < 21; $i++) {
 
 
   $id = $_REQUEST["id$i"];
-
+  $aa = $_REQUEST['af'];
 
   $sqla="SELECT * From testing WHERE id =".$id;
   $db_querya=mysqli_query($con,$sqla) or die(mysqli_error());
@@ -34,14 +34,20 @@ for ($i=1; $i < 21; $i++) {
 
     </h3>
 
-    <?php  if($cn == $an) {
+    <?php
+    // $re_id = $resulta['id'];
+    // $save = "INSERT INTO user_testing (testing_id , user_anw , user_bf) VALUES ( '$re_id' , '$cn' , '$aa' )";
+    // $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+
+    if($cn == $an) {
+
       echo "<h4>ผลลัพธ์ :<u> ถูก </u> </h4>";
     }elseif ($cn <> $an) {
       echo "<h4>ผลลัพธ์ :<u> ผิด </u> </h4>";
     }
     echo "<hr>";
 
-   
+
   }
 
 }

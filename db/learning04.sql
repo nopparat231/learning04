@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2019 at 04:37 AM
+-- Generation Time: Jul 14, 2019 at 03:20 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `learning02`
+-- Database: `learning04`
 --
 
 -- --------------------------------------------------------
@@ -126,7 +126,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`ID`, `Username`, `Password`, `Firstname`, `Lastname`, `email`, `phone`, `Userlevel`, `user_date`, `session_id`, `Status`) VALUES
 (48, 'user', 'Aa123456', 'User', 'User', 'User@gmail.com', '8888888888', 'M', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
 (44, 'admin', 'Aa123456', 'GGMM', 'GGMM', 'admin@gmail.com', '8888888888', 'A', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
-(47, 'user', 'Aa1234561', 'User1', 'User', 'User@gmail.com', '8888888888', 'M', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y');
+(47, 'user1', 'Aa1234561', 'User1', 'User', 'User@gmail.com', '8888888888', 'E', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y');
 
 -- --------------------------------------------------------
 
@@ -140,18 +140,98 @@ CREATE TABLE `user_learning` (
   `user_id` int(10) NOT NULL,
   `user_learning_bf` int(20) NOT NULL,
   `user_learning_af` varchar(20) NOT NULL,
-  `user_learning_time_bf` varchar(20) NOT NULL,
-  `user_learning_time_af` varchar(20) NOT NULL,
-  `user_learning_status` int(1) NOT NULL
+  `user_learning_status` int(1) NOT NULL,
+  `user_learning_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_learning`
 --
 
-INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`, `user_learning_time_bf`, `user_learning_time_af`, `user_learning_status`) VALUES
-(72, 1, 44, 7, '13', '20 วินาที', '17 วินาที', 0),
-(73, 1, 47, 7, '6', '22 วินาที', '23 วินาที', 0);
+INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`, `user_learning_status`, `user_learning_date`) VALUES
+(79, 1, 44, 5, '7', 0, '2019-07-14 13:04:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_testing`
+--
+
+CREATE TABLE `user_testing` (
+  `id` int(11) NOT NULL,
+  `testing_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_anw` int(11) NOT NULL,
+  `user_bf` varchar(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_testing`
+--
+
+INSERT INTO `user_testing` (`id`, `testing_id`, `user_id`, `user_anw`, `user_bf`, `status`, `timestamp`) VALUES
+(781, 7, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(782, 25, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(783, 45, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(784, 41, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(785, 5, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(786, 46, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(787, 22, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(788, 2, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(789, 19, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(790, 9, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(791, 21, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(792, 42, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(793, 4, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(794, 11, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(795, 24, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(796, 6, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(797, 43, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(798, 14, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(799, 3, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(800, 8, 44, 1, 'bff', 0, '2019-07-14 13:04:07'),
+(801, 23, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(802, 10, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(803, 3, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(804, 6, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(805, 12, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(806, 45, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(807, 43, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(808, 20, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(809, 22, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(810, 41, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(811, 42, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(812, 9, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(813, 2, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(814, 11, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(815, 7, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(816, 21, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(817, 19, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(818, 18, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(819, 16, 44, 1, 'bff', 0, '2019-07-14 13:04:34'),
+(820, 1, 44, 4, 'bff', 0, '2019-07-14 13:04:34'),
+(841, 10, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(842, 15, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(843, 14, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(844, 16, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(845, 7, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(846, 6, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(847, 41, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(848, 8, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(849, 18, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(850, 23, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(851, 42, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(852, 17, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(853, 3, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(854, 2, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(855, 24, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(856, 1, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(857, 4, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(858, 25, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(859, 9, 44, 1, 'af', 0, '2019-07-14 13:05:50'),
+(860, 5, 44, 1, 'af', 0, '2019-07-14 13:05:50');
 
 --
 -- Indexes for dumped tables
@@ -182,6 +262,12 @@ ALTER TABLE `user_learning`
   ADD PRIMARY KEY (`user_learning_id`);
 
 --
+-- Indexes for table `user_testing`
+--
+ALTER TABLE `user_testing`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -207,7 +293,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_learning`
 --
 ALTER TABLE `user_learning`
-  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `user_testing`
+--
+ALTER TABLE `user_testing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=861;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

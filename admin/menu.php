@@ -11,6 +11,8 @@
 
          <a href="../index1.php?learning" class="border-0 list-group-item d-flex justify-content-between align-items-center list-group-item-action"> บทเรียน </a>
 
+         <a href="index.php?anw" class="border-0 list-group-item d-flex justify-content-between align-items-center list-group-item-action">จัดการสมาชิก </a>
+
          <a class="dropdown-toggle border-0 list-group-item d-flex justify-content-between align-items-center list-group-item-action" data-toggle="dropdown"> ข้อมูล </a>
 
          <ul class="dropdown-menu">
