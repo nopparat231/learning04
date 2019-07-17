@@ -113,7 +113,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         </div>
       </div>
     </div>
-    <form name="form1" method="get" action="">
+    <form name="form1" method="post" action="">
       <div class="py-3" style="">
         <div class="container">
           <div class="row">
@@ -225,7 +225,7 @@ function bf(){
   include 'conn.php';
   //$user_learning_time_bf = 'ยังไม่ทำ';
   $aabff = $_REQUEST['bff']; //สถานะ ก่อน หลัง
-  $aabff = 'bff'; //สถานะ ก่อน หลัง
+  //$aabff = 'bff'; //สถานะ ก่อน หลัง
   
 
   $choice_id = $_REQUEST['choice_id'];
@@ -239,6 +239,7 @@ function bf(){
 
     $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
      $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
+
 
      $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$aabff' )";
      $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
