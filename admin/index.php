@@ -3,8 +3,10 @@ if(session_status() == PHP_SESSION_NONE){
     //session has not started
   session_start();
 }
-?>
 
+
+?>
+<?php include '../check.php'; ?>
 <!DOCTYPE html>
 <html>
 

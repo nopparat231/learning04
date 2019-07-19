@@ -8,6 +8,11 @@ if(session_status() == PHP_SESSION_NONE){
   session_start();
 }
 
+if (isset($_SESSION["UserID"])) {
+    header('Location: index1.php');
+    exit;
+  }
+  
 ?>
 
 <!DOCTYPE html>
