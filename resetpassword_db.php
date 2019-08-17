@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-
+<?php date_default_timezone_set('Asia/Bangkok'); ?>
 <?php  if (isset($_POST['email'])) { 
 
 
@@ -19,9 +19,9 @@
 
      ini_set( 'display_errors', 1 );
     error_reporting( E_ALL );
-    $from = "sharelea@sharelearningmedia.com";
+    $from = "service@digitalmarketing.shpjm.com";
     $to = $email;
-    $subject = "รหัสผ่านสำหรับเว็บ sharelearningmedia.com";
+    $subject = "รหัสผ่านสำหรับเว็บ digitalmarketing.shpjm.com";
     $message = $massage;
     $headers = "From:" . $from . "\r\n";
     $headers .= "Content-Type: text/html; charset=utf-8\r\n";
