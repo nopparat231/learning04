@@ -76,7 +76,7 @@ $totalRows_user = mysqli_num_rows($user);
 
 
 											<td>
-												<a href="index.php?eu&user_id=<?php echo $row_user['ID'];?>" class="btn btn-outline-warning my-2 my-sm-0" ><i class="fas fa-user-edit"></i></a>
+												<a href="index.php?sp&user_id=<?php echo $row_user['ID'];?>" class="btn btn-outline-warning my-2 my-sm-0" ><i class="fas fa-user-edit"></i></a>
 											</td>
 
 											<?php if ($row_user['Userlevel'] <> 'E' ): ?>
@@ -116,4 +116,3 @@ $totalRows_user = mysqli_num_rows($user);
 			</div>
 		</div>
 	</div>
-

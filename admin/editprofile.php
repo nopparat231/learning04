@@ -58,6 +58,17 @@ $num = mysqli_fetch_assoc($result);
                       </div>
                     </div>
 
+                    <div class="form-group row">
+                      <label class="col-2">วันหมดอายุ<br></label>
+                      <div class="col-9">
+                        <?php $d = date("Y-m-d"); ?>
+
+                        <input type="date" name="user_date" min="<?php echo $d; ?>" value="<?php echo date('Y-m-d',strtotime($num['user_date'])) ?>" />
+
+                      </div>
+                    </div>
+
+
                     <input type="hidden" name="id" value="<?php echo($num['ID'])?>">
 
                     <div class="py-3">
@@ -66,7 +77,7 @@ $num = mysqli_fetch_assoc($result);
                           <div class="col-md-12 text-center">
                             <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
 
-                            <a class="btn btn-danger text-light mx-1" href="index.php?sp&user_id=<?php echo $_SESSION["UserID"]; ?>">ยกเลิก</a>
+                            <a class="btn btn-danger text-light mx-1" href="index.php?su">ยกเลิก</a>
                           </div>
                         </div>
                       </div>

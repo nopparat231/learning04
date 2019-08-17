@@ -1,5 +1,5 @@
 <meta charset="UTF-8" />
-
+<?php date_default_timezone_set('Asia/Bangkok'); ?>
 <?php
 
 if (isset($_POST['m']) <> '') { 

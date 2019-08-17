@@ -13,7 +13,7 @@
     body {
       font-family: 'Prompt', sans-serif;
     }
-
+<?php date_default_timezone_set('Asia/Bangkok'); ?>
   </style>
 </head>
 

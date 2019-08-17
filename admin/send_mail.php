@@ -1,4 +1,4 @@
-
+<?php date_default_timezone_set('Asia/Bangkok'); ?>
 <?php 
 
 $user_id = isset($_GET['user_id']);

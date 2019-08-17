@@ -51,7 +51,7 @@ $totalRows_model = mysqli_num_rows($model);
                 <tr class="text-center">
                   <th scope="col" width="5">ลำดับ</th>
                   <th scope="col">ชื่อบทเรียน</th>
-                  <th scope="col">ลิ้งค์</th>
+
 
                   <th scope="col" width="15">สื่อการเรียนรู้</th>
                   <th scope="col" width="5">แก้ไข</th>
@@ -69,7 +69,7 @@ $totalRows_model = mysqli_num_rows($model);
 
                     <td><?php echo $i ?></td>
                     <td><?php echo $row_model['choice_name']; ?></td>
-                    <td><?php echo $row_model['video']; ?></td>
+                 
                     <?php  
 
                     $url = $row_model['video'];
@@ -165,7 +165,7 @@ $totalRows_model = mysqli_num_rows($model);
 
                   <th scope="col" width="5">แก้ไข</th>
                   <th scope="col" width="5">ยกเลิก</th>
-                  <th scope="col" width="5">สื่อ</th>
+                  
                   <th scope="col" width="5">แบบทดสอบ</th>
                   <th scope="col" width="5">คะแนน</th>
                 </tr>
@@ -184,7 +184,7 @@ $totalRows_model = mysqli_num_rows($model);
                     <td><?php echo $row_model['choice_detail']; ?></td>
 
                     <td>
-                      <a href="edit_choice.php?choice_id=<?php echo $row_model['choice_id'];?>" class="btn btn-outline-warning my-2 my-sm-0" ><i class="far fa-edit"></i></a>
+                      <a href="index.php?sco" class="btn btn-outline-warning my-2 my-sm-0" ><i class="far fa-edit"></i></a>
                     </td>
 
                     <?php if ($row_model['choice_status'] <> 1 ): ?>
@@ -197,9 +197,7 @@ $totalRows_model = mysqli_num_rows($model);
                       </td>
                     <?php endif ?>
 
-                    <td>
-                      <a href="index.php?sco" class="btn btn-outline-danger my-2 my-sm-0" ><i class="fab fa-youtube"></i></a>
-                    </td>
+
 
                     <td>
                       <a href="index.php?showchoice_s&choice_id=<?php echo $row_model['choice_id'];?>" class="btn btn-outline-warning my-2 my-sm-0" ><i class="far fa-file-alt"></i></a>

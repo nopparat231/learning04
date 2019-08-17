@@ -17,7 +17,7 @@ $Lastname = $_REQUEST["Lastname"];
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $id = $_REQUEST["id"];
-
+$user_date = $_REQUEST["user_date"];
 
 
 $sql ="UPDATE user SET 
@@ -25,6 +25,7 @@ $sql ="UPDATE user SET
 Firstname='$Firstname',
 Lastname='$Lastname',
 email='$email',
+user_date='$user_date',
 phone='$phone'
 WHERE id=$id
 ";

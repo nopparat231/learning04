@@ -74,7 +74,7 @@
 $choice_id = $_REQUEST['choice_id'];
 $user_id = $_REQUEST['user_id'];
 
-$sql="SELECT * From testing WHERE choice_id = '$choice_id' and status <> 1 order by rand() limit 21";
+$sql="SELECT * From testing WHERE choice_id = '$choice_id' and status <> 1 order by rand() limit 11";
 $db_query=mysqli_query($con,$sql) or die(mysqli_error());
 $result=mysqli_fetch_array($db_query);
 
@@ -148,7 +148,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="containerr"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" required checked>
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required>
                   <span class="checkmark"></span></h5>
                 </label>
 

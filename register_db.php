@@ -1,6 +1,6 @@
 <?php session_start();?>
 <meta charset="UTF-8" />
-
+<?php date_default_timezone_set('Asia/Bangkok'); ?>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
@@ -79,7 +79,7 @@ if ($numemail > 0 ){ ?>
 			$result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 			$ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
 			$ma = "https://digitalmarketing.shpjm.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
-     $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
+     $massage = "<h3> activate user account </h3><br>".$ma;
    }
 	//ปิดการเชื่อมต่อ database
    mysqli_close($con);
@@ -92,7 +92,7 @@ if ($numemail > 0 ){ ?>
      error_reporting( E_ALL );
      $from = "service@shpjm.com";
      $to = $email;
-     $subject = "ยืนยันการสมัครสมาชิกดเว็บ sharelearningmedia.com";
+     $subject = "activate user account digitalmarketing.shpjm.com";
      $message = $massage;
      $headers = "From:" . $from . "\r\n";
      $headers .= "Content-Type: text/html; charset=utf-8\r\n";

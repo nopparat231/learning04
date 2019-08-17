@@ -78,6 +78,7 @@ $num = mysqli_fetch_assoc($result);
                             <div class="col-md-12 text-center">
 
                               <a class="btn btn-warning text-light mx-1" href="index.php?ep&user_id=<?php echo $_SESSION["UserID"]; ?>">แก้ไข</a>
+                              <a class="btn btn-danger text-light mx-1" href="index.php?su">ยกเลิก</a>
                             </div>
                           </div>
                         </div>

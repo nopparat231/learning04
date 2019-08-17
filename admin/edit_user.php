@@ -23,7 +23,7 @@ $totalRows_user = mysqli_num_rows($user);
 </div>
 <div class="py-1">
 
-  <form class="" id="c_form-h" action="edit_user_db.php" method="post" >
+
     <div class="form-group row"><label class="col-2 col-form-label">ชื่อผู้ใช้<br></label>
       <div class="col-9">
         <?php echo $row_user['Username']; ?>
@@ -93,12 +93,13 @@ if ($row_user['Userlevel'] == 'A' ){
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <button name="submit" type="submit" class="btn btn-success text-light mx-1">แก่ไข</button>
+
+        <a class="btn btn-success text-light mx-1" href="index.php?sp&user_id=<?php echo $user_id; ?>">แก้ไข</a>
         <a class="btn btn-danger text-light mx-1" href="index.php?su">ยกเลิก</a>
       </div>
     </div>
   </div>
 </div>
-</form>
+
 </div>
 </div>
