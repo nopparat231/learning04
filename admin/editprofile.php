@@ -68,56 +68,78 @@ $num = mysqli_fetch_assoc($result);
                       </div>
                     </div>
 
+                    <?php 
+                    $m = '';
+                    $a = '';
+                    $e = '';
+                    if ($num['Userlevel'] == 'A' ){
+                      $a = 'selected';
+                    }elseif ($num['Userlevel'] == 'M') {
+                      $m = 'selected';
+                    }
+                    ?>
+                    <div class="form-group row">
 
-                    <input type="hidden" name="id" value="<?php echo($num['ID'])?>">
+                     <label class="col-2">สถานะ<br></label>
+                     <div class="col-3">
+                       <select class="custom-select" name="Userlevel">
+                         <option <?php echo $a; ?> value="A">Admin</option>
+                         <option <?php echo $m; ?> value="M">User</option>
 
-                    <div class="py-3">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-md-12 text-center">
-                            <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
 
-                            <a class="btn btn-danger text-light mx-1" href="index.php?su">ยกเลิก</a>
-                          </div>
+                       </select>
+                     </div>
+                   </div>
+                   
+                   <input type="hidden" name="id" value="<?php echo($num['ID'])?>">
+
+                   <div class="py-3">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
+
+                          <a class="btn btn-danger text-light mx-1" href="index.php?su">ยกเลิก</a>
                         </div>
                       </div>
                     </div>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-
         </div>
 
+      </div>
 
-        <script type="text/javascript">
 
-          function validate() {
-            var element = document.getElementById('input-field');
-            element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
-          };
+      <script type="text/javascript">
 
-          function num() {
-            var element = document.getElementById('input-num');
-            element.value = element.value.replace(/[^0-9]+/, '');
-          };
+        function validate() {
+          var element = document.getElementById('input-field');
+          element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+        };
 
-          function user() {
-            var element = document.getElementById('input-user');
-            element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
-          };
-        </script>
+        function num() {
+          var element = document.getElementById('input-num');
+          element.value = element.value.replace(/[^0-9]+/, '');
+        };
 
-        <script type="text/javascript">
-          function checkPasswordMatch() {
-            var password = $("#txtNewPassword").val();
-            var confirmPassword = $("#txtConfirmPassword").val();
-            if (password != confirmPassword)
-              $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
-            else
-              $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
-          }
+        function user() {
+          var element = document.getElementById('input-user');
+          element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
+        };
+      </script>
+
+      <script type="text/javascript">
+        function checkPasswordMatch() {
+          var password = $("#txtNewPassword").val();
+          var confirmPassword = $("#txtConfirmPassword").val();
+          if (password != confirmPassword)
+            $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
+          else
+            $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
+        }
 
           /*
   jQuery document ready.
