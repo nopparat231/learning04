@@ -62,14 +62,14 @@ if (isset($_SESSION["UserID"])) {
     <div class="form-group row"><label class="col-2">ชื่อ</label>
       <div class="col-10">
         <div class="input-group">
-          <input type="text" name="Firstname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ" onkeyup="validate();" minlength="3" maxlength="25"  title="ใส่ ก-ฮ หรือ a-z อย่างน้อย 3 ตัว"></div>
+          <input type="text" name="Firstname" class="form-control"  required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ" onkeyup="validate();" minlength="3" maxlength="25"  title="ใส่ ก-ฮ หรือ a-z อย่างน้อย 3 ตัว"></div>
 
         </div>
       </div>
       <div class="form-group row"><label class="col-2">นามสกุล</label>
         <div class="col-10">
           <div class="input-group">
-            <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล อย่างน้อย 3 ตัว" placeholder="กรุณากรอกนามสกุล" onkeyup="validate();" minlength="3" maxlength="25"  title="ใส่ ก-ฮ หรือ a-z อย่างน้อย 3 ตัว"></div>
+            <input type="text" name="Lastname" class="form-control"  required="กรุณากรอกนามสกุล อย่างน้อย 3 ตัว" placeholder="กรุณากรอกนามสกุล" onkeyup="validate();" minlength="3" maxlength="25"  title="ใส่ ก-ฮ หรือ a-z อย่างน้อย 3 ตัว"></div>
 
           </div>
         </div>
