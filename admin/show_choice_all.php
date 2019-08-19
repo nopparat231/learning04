@@ -69,60 +69,58 @@ $totalRows_model = mysqli_num_rows($model);
 
                     <td><?php echo $i ?></td>
                     <td><?php echo $row_model['choice_name']; ?></td>
-                 
-                    <?php  
-
-                    $url = $row_model['video'];
-                    preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
-                    $id = $matches[1];
-                    $width = '200px';
-                    $height = '115px';
-                    ?>
 
 
                     <td>
-                      <iframe width="200" height="100" src="https://www.youtube.com/embed/<?php echo $id; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </td>
-                    <td>
-                      <a href="index.php?sco&choice_id=<?php echo $row_model['choice_id'];?>" class="btn btn-outline-warning my-2 my-sm-0"><i class="far fa-edit"></i></a>
-                    </td>
-                    <?php if ($row_model['choice_status'] <> 1 ): ?>
-                     <td> 
-                      <a href="del_choice.php?choice_id=<?php echo $row_model['choice_id'];?>&st=1" class="btn btn-outline-danger my-2 my-sm-0" onClick="return confirm('ยืนยันการยกเลิกหมวดหมู่');"><i class="fas fa-ban"></i></a>
-                    </td>
-                    <?php else: ?>
-                      <td> 
-                        <a href="del_choice.php?choice_id=<?php echo $row_model['choice_id'];?>&st=0" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานหมวดหมู่');"><i class="fas fa-redo"></i></i></i></a>
+
+
+                      <video id="video1" width="200" height="100"  style="pointer-events: none;">
+                        <source src="../img/<?php echo $row_model['video']; ?>" type="video/mp4">
+                          Your browser does not support HTML5 video. กรุณาเปิดใน Google Chrome
+                        </video>
+
+
                       </td>
-                    <?php endif ?>
+                      <td>
+                        <a href="index.php?sco&choice_id=<?php echo $row_model['choice_id'];?>" class="btn btn-outline-warning my-2 my-sm-0"><i class="far fa-edit"></i></a>
+                      </td>
+                      <?php if ($row_model['choice_status'] <> 1 ): ?>
+                       <td> 
+                        <a href="del_choice.php?choice_id=<?php echo $row_model['choice_id'];?>&st=1" class="btn btn-outline-danger my-2 my-sm-0" onClick="return confirm('ยืนยันการยกเลิกหมวดหมู่');"><i class="fas fa-ban"></i></a>
+                      </td>
+                      <?php else: ?>
+                        <td> 
+                          <a href="del_choice.php?choice_id=<?php echo $row_model['choice_id'];?>&st=0" class="btn btn-outline-info my-2 my-sm-0" onClick="return confirm('ยืนยันการใช้งานหมวดหมู่');"><i class="fas fa-redo"></i></i></i></a>
+                        </td>
+                      <?php endif ?>
 
 
-                  </tr>
+                    </tr>
 
-                  <?php 
-                  $i += 1;
-                } while ($row_model = mysqli_fetch_assoc($model)); ?>
+                    <?php 
+                    $i += 1;
+                  } while ($row_model = mysqli_fetch_assoc($model)); ?>
 
-              </tbody>
-            </table>
-          <?php }else {
-            echo "<h3> ยังไม่มีคะแนน </h3>";
-          }
+                </tbody>
+              </table>
+            <?php }else {
+              echo "<h3> ยังไม่มีคะแนน </h3>";
+            }
 
-          mysqli_free_result($model);?>
+            mysqli_free_result($model);?>
 
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12"></div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12"></div>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 

@@ -27,7 +27,7 @@ if (isset($_GET['choice_id'])) {
 
 <body>
 
-  <form action="edit_choice_db.php" method="post">
+  <form action="edit_choice_db.php"  enctype="multipart/form-data" method="post">
     <div class="modal fade" style="" id="editchoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -46,17 +46,25 @@ if (isset($_GET['choice_id'])) {
                 </div>
               </div>
 
-              <div class="form-group row"> 
-                <label for="inputmailh" class="col-3 col-form-label">URL Youtube</label>
-                <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="video" name="video" placeholder="กรุณากรอก URL"  value="<?php echo $row_editc['video'] ?>"> 
-                </div>
+
+             <div class="form-group row"> 
+              <label for="inputmailh" class="col-3 col-form-label">เลือกไฟล์ Video</label>
+              <div class="col-9">
+
+
+                <?php //include 'up.php'; ?>
+                  <input type="file" name="file1" id="file1" value="../img/<?php echo $row_editc['video']; ?>">
+
+                 
+           
+
               </div>
+            </div>
 
               <div class="form-group row"> 
                 <label for="inputmailh" class="col-3 col-form-label">รายละเอียด</label>
                 <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="video" name="choice_detail" placeholder="กรุณากรอก URL"  value="<?php echo $row_editc['choice_detail'] ?>"> 
+                  <input type="text" class="form-control"  required="required"  id="video" name="choice_detail" placeholder="กรุณากรอก รายละเอียด"  value="<?php echo $row_editc['choice_detail'] ?>"> 
                 </div>
               </div>
 

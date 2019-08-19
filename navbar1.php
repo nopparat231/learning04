@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-md navbar-light" style="background: #FEAD97;">
 	<div class="container"> 
 
@@ -6,7 +5,7 @@
 
 			<ul class="navbar-nav mx-auto"></ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" class="navbar-brand">ติดต่อเรา</a></li>
+				<li><a href="#" class="navbar-brand"></a></li>
 
 			</ul>
 		</div>
