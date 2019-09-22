@@ -8,6 +8,7 @@
 include 'header.php';
 include 'conn.php'; 
 
+
 $user_id = $_GET['user_id'];
 
 $query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.user_id = $user_id and l.choice_id = c.choice_id and l.user_id = u.id order by l.user_learning_af desc" ;
@@ -46,7 +47,7 @@ $totalRows_learning = mysqli_num_rows($learning);
         <div class="row">
           <div class="col-md-12">
             <div class="table-responsive text-center">
-              <table class="table table-striped table-bordered">
+              <table class="table table-striped table-bordered" id="example">
                <?php if ($totalRows_learning > 0) {?>
 
                 <thead>
